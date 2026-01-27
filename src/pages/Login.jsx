@@ -1,14 +1,36 @@
-import React from 'react';
+import React, { use } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router';
+import { AuthContext } from '../context/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
-    const {errorMessage, setErrormessage} = useState('');
+    const {loginUser} = use(AuthContext);
+    const [errorMessage, setErrorMessage] = useState('');
     const handlesignInWithGoogle =()=>{
 
     }
-    const handleLogin =()=>{
-
+    const handleLogin =e=>{
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        loginUser(email, password)
+        .then(result=>{
+            Swal.fire({
+                        title: `Welcome, ${result.user.displayName} Your Registration Successful!`,
+                        icon: "success",
+                        draggable: true
+                    });
+        })
+        .catch(error=>{
+            setErrorMessage(error.message);
+            Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Something went wrong",
+                    });
+        })
     }
     return (
         <div className="hero rounded-2xl py-5 bg-[#1E3A8A20] w-11/12 mx-auto my-5">
@@ -38,15 +60,7 @@ const Login = () => {
                             Login with Google
                         </button>
                         <p className='text-center'>New to khojo? Please <Link to="/signUp" className='text-[#1E3A8A] font-bold'>SignUp</Link></p>
-                        <>
-                            {
-                                (errorMessage =="Firebase: Error (auth/email-already-in-use).") ?
-                                (<p>Email already in use please <Link to="/Login" className='text-[#2E7D32] font-bold'>login</Link> or use other email.</p>) 
-                                : (
-                                    <p className='text-center text-red-500 font-semibold text-sm'>{errorMessage}</p>
-                                )
-                            }
-                        </>
+                        <p className='text-center text-red-500 font-semibold text-sm'>{errorMessage}</p>   
                     </div>
                     </div>
                 </div>

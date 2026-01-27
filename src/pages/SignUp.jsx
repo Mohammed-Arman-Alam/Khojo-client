@@ -13,11 +13,10 @@ const SignUp = () => {
     const handleRegister =e=>{
         e.preventDefault();
         const form = e.target;
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-        const url = e.target.url.value;
-        const name = e.target.name.value;
-        console.log(email, name, password, url);
+        const email = form.email.value;
+        const password = form.password.value;
+        const url = form.url.value;
+        const name = form.name.value;
         createUser(email, password)
         .then(result =>{
             updateUser({displayName: name, photoURL : url})
