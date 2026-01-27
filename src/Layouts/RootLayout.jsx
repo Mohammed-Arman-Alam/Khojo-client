@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 
 const RootLayout = () => {
     return (
-        <div>
+        <div className="bg-[url('https://i.ibb.co.com/PGV8Vjfk/banner-img.png')] bg-top bg-no-repeat bg-cover"> 
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>
