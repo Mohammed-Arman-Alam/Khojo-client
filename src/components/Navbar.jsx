@@ -5,7 +5,6 @@ import Swal from 'sweetalert2';
 
 const Navbar = () => {
     const {user, signOutUser} = use(AuthContext);
-    console.log(user);
     const handleLogOut =()=>{
         signOutUser()
         .then(()=>{
@@ -25,16 +24,15 @@ const Navbar = () => {
     }
     const navItems =<>
                     <NavLink to='/' className={({isActive})=>(isActive ? "font-bold border-b-2 border-[#1E3A8A] " : "")}>Home</NavLink>
-                      
-                      <li>Lost Item</li>
-                      <li>Found Item</li>
+                      <li>Lost & Found Item</li>
+                      <NavLink to='/addItems' className={({isActive})=>(isActive ? "font-bold border-b-2 border-[#1E3A8A] " : "")}>Add Lost & Found Items</NavLink>
                     </>
     return (
-        <div className='flex w-10/12 mx-auto justify-between pt-8 mb-5 bg-transparent items-center'>
+        <div className='flex w-11/12 mx-auto justify-between pt-8 mb-5 bg-transparent items-center'>
             <div className='text-6xl font-poppins font-extrabold tracking-tight text-[#1E3A8A]'>
                 K<span className='text-[#FF9B51]'>h</span>oj<span className='text-[#FF9B51]'>o</span>
             </div>
-            <div className='flex w-3/6 justify-between items-baseline'>
+            <div className='flex w-4/6  lg:w-4/7 justify-between items-baseline'>
                 <ul className='flex text-[#1E3A8A] text-2xl font-semibold gap-5 flex-nowrap'>
                     {navItems}
                 </ul>

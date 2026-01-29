@@ -3,6 +3,7 @@ import Home from "../pages/Home";
 import RootLayout from "../Layouts/RootLayout";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
+import AddLostFound from "../pages/AddLostFound";
 const router = createBrowserRouter([
     {
         path:"/",
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
             {
                 path: '/signUp',
                 Component: SignUp
+            },
+            {
+                path: '/addItems',
+                Component: AddLostFound
             }
         ]
     }
