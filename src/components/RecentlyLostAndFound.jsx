@@ -1,6 +1,7 @@
 import React from 'react';
 import RecentlyLost from './RecentlyLost';
 import RecentlyFound from './RecentlyFound';
+import { Link } from 'react-router';
 
 const RecentlyLostAndFound = () => {
     return (
@@ -14,7 +15,9 @@ const RecentlyLostAndFound = () => {
                 </aside>
             </div>
             <div className='text-center'>
-                <button className='btn w-40 text-2xl font-bold text-white bg-[#1E3A8A] py-7 rounded-2xl'>View All</button>
+                <Link to='/allitems'>
+                    <button className='btn w-40 text-2xl font-bold text-white bg-[#1E3A8A] py-7 rounded-2xl'>View All</button>
+                </Link>
             </div>
             
         </div>

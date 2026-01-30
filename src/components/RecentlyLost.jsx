@@ -12,7 +12,7 @@ const RecentlyLost = () => {
     return (
         <div>
             <h1 className='text-[#1E3A8A] text-3xl font-bold flex'>--Recently Lost Items------</h1>
-            <div className='flex justify-evenly my-5'> 
+            <div className='flex grid-cols-3 my-5'> 
                 {
                     lostItem.map(item =><ItemCard key={item._id} item={item}></ItemCard>)
                 }

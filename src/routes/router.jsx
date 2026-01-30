@@ -5,6 +5,7 @@ import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import AddLostFound from "../pages/AddLostFound";
 import itemDetails from "../pages/itemDetails";
+import AllLostFound from "../pages/AllLostFound";
 const router = createBrowserRouter([
     {
         path:"/",
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
             {
                 path: '/addItems',
                 Component: AddLostFound
+            },
+            {
+                path: '/allitems',
+                Component: AllLostFound
             },
             {
                 path: '/itemdetails/:id',
