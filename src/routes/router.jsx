@@ -4,6 +4,7 @@ import RootLayout from "../Layouts/RootLayout";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import AddLostFound from "../pages/AddLostFound";
+import itemDetails from "../pages/itemDetails";
 const router = createBrowserRouter([
     {
         path:"/",
@@ -24,7 +25,12 @@ const router = createBrowserRouter([
             {
                 path: '/addItems',
                 Component: AddLostFound
-            }
+            },
+            {
+                path: '/itemdetails/:id',
+                Component: itemDetails,
+                loader: ({params})=>fetch(`http://localhost:3000/details/${params.id}`)
+            },
         ]
     }
 ])

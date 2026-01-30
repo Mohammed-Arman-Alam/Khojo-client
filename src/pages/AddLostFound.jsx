@@ -53,7 +53,7 @@ const AddLostFound = () => {
                 </div>
                 <div>
                     <label className="font-semibold text-lg">Thumbnail</label>
-                    <input type="text" name="imageUrl" placeholder='Lost/Found Items Image Url' 
+                    <input type="text" name="thumbnail" placeholder='Lost/Found Items Image Url' 
                     className="w-full border border-gray-300 rounded-md p-2 focus:outline-0 focus:border-[#1E3A8A] focus:border-2 focus:bg-white" required>
                 </input>
                 </div>
