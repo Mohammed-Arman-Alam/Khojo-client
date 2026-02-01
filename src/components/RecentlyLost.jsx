@@ -4,7 +4,7 @@ import ItemCard from './ItemCard';
 const RecentlyLost = () => {
     const [lostItem, setLostItem] = useState([]);
         useEffect(()=>{
-            fetch('http://localhost:3000/lost&found/lost')
+            fetch('http://localhost:3000/lost-found/lost')
             .then(res => res.json())
             .then(data=> setLostItem(data.slice(0,3)))
         },[])

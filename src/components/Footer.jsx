@@ -6,7 +6,7 @@ import { IoIosChatbubbles } from "react-icons/io";
 
 const Footer = () => {
     return (
-        <footer className='bg-[#1E3A8A50] w-11/12 mx-auto flex rounded-xl justify-around py-5'>
+        <footer className='bg-[#1E3A8A50] w-11/12 mx-auto flex rounded-xl justify-around py-8'>
             <div className='flex'>
                 <FaSearch  size={60} className='text-[#1E3A8A]'/>
                 <div>

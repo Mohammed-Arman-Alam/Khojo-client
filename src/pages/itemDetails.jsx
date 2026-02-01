@@ -2,9 +2,7 @@ import React from 'react';
 import { useLoaderData, useParams } from 'react-router';
 
 const itemDetails = ()=> {
-    const {id} = useParams();
     const {postType, title, description, location, date, userName, email, thumbnail} = useLoaderData();
-    console.log(id);
     return (
         <div className="w-11/12 mx-auto my-10 rounded-2xl card card-side shadow-sm bg-[#1E3A8A90]">
           <figure>

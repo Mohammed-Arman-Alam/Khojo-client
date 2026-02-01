@@ -27,6 +27,7 @@ const Navbar = () => {
                     
                     <NavLink to='allitems' className={({isActive})=>(isActive ? "font-bold border-b-2 border-[#1E3A8A] " : "")}>Lost & Found Item</NavLink>
                     <NavLink to='/addItems' className={({isActive})=>(isActive ? "font-bold border-b-2 border-[#1E3A8A] " : "")}>Add Lost & Found Items</NavLink>
+                    <NavLink to='/myItems' className={({isActive})=>(isActive ? "font-bold border-b-2 border-[#1E3A8A] " : "")}>My Items</NavLink>
                     </>
     return (
         <div className='flex w-11/12 mx-auto justify-between pt-8 mb-5 bg-transparent items-center'>
@@ -34,7 +35,7 @@ const Navbar = () => {
                 K<span className='text-[#FF9B51]'>h</span>oj<span className='text-[#FF9B51]'>o</span>
             </div>
             <div className='flex w-4/6  lg:w-4/7 justify-between items-baseline'>
-                <ul className='flex text-[#1E3A8A] text-2xl font-semibold gap-5 flex-nowrap'>
+                <ul className='flex text-[#1E3A8A] text-2xl font-semibold gap-5 flex-nowrap text-nowrap'>
                     {navItems}
                 </ul>
                 <p className='text-4xl font-semibold text-[#1E3A8A40]'>|</p>

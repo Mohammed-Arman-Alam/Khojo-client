@@ -6,6 +6,8 @@ import SignUp from "../pages/SignUp";
 import AddLostFound from "../pages/AddLostFound";
 import itemDetails from "../pages/itemDetails";
 import AllLostFound from "../pages/AllLostFound";
+import UpdateItems from "../pages/UpdateItems";
+import MyItems from "../pages/MyItems";
 const router = createBrowserRouter([
     {
         path:"/",
@@ -36,6 +38,15 @@ const router = createBrowserRouter([
                 Component: itemDetails,
                 loader: ({params})=>fetch(`http://localhost:3000/details/${params.id}`)
             },
+            {
+                path: '/updateItems/:id',
+                Component: UpdateItems,
+                loader: ({params})=>fetch(`http://localhost:3000/details/${params.id}`)
+            },
+            {
+                path: '/myItems',
+                Component: MyItems,
+            }
         ]
     }
 ])
