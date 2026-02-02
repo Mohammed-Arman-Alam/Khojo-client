@@ -7,7 +7,7 @@ import axios from 'axios';
 import { useLoaderData, useParams } from 'react-router';
 
 const UpdateItems = () => {
-    const {category, date, description, location, postType, thumbnail, title} = useLoaderData();
+    const {category, date, description, location, postType, thumbnail, title, _id, email} = useLoaderData();
     const {user} = use(AuthContext);
     const [startDate, setStartDate] = useState(date);
     
@@ -19,8 +19,29 @@ const UpdateItems = () => {
         const form = e.target;
         const formData = new FormData(form);
         const itemData = Object.fromEntries(formData.entries());
-        console.log(itemData)
-        axios.patch(`http://localhost:3000/lost-found/${id}`,itemData)
+        axios.patch(`http://localhost:3000/lost-found/${_id}`,itemData)
+        .then(res=>{
+            console.log(res.data.modifiedCount);
+            if(res.data.modifiedCount){
+                Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Item details updated.",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+            }
+            else{
+                Swal.fire({
+                        position: "center",
+                        icon: "warning",
+                        title: "You haven't updated any details.",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+            }
+        })
+        .catch(error => console.log(error))
     }
     return (
         <div className='sm:w-11/12 mx-auto rounded-md my-10'>
@@ -92,14 +113,14 @@ const UpdateItems = () => {
                 </div>
                 <div>
                     <label className="font-semibold text-lg">Email</label>
-                    <input type="email" name="email" value={user?.email} readOnly
+                    <input type="email" name="email" value={email} readOnly
                     className="w-full border border-[#1E3A8A] rounded-md p-2  cursor-not-allowed">
                     </input>
                 </div>
                 </div>
                 <div className="text-center">
                     <button type="submit"
-                    className="bg-[#1E3A8A] text-white px-6 py-2 rounded-md font-semibold sm:text-lg hover:text-[#1E3A8A] hover:bg-white hover:border-2 hover:border-[#1E3A8A] hover:-mt-1">Submit</button>
+                    className="bg-[#1E3A8A] text-white px-6 py-2 rounded-md font-semibold sm:text-lg hover:text-[#1E3A8A] hover:bg-white hover:border-2 hover:border-[#1E3A8A] hover:-mt-1">Update</button>
                 </div>
             </form>
         </div>
