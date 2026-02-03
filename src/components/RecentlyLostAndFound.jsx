@@ -6,11 +6,11 @@ import { Link } from 'react-router';
 const RecentlyLostAndFound = () => {
     return (
         <div className='w-11/12 mx-auto my-8  bg-white rounded-2xl p-5'>
-            <div className='flex gap-8'>
-                <aside className='w-5/10'>
-                <RecentlyLost></RecentlyLost>
+            <div className='flex flex-col lg:flex-row gap-8'>
+                <aside className='w-full lg:w-5/10'>
+                    <RecentlyLost></RecentlyLost>
                 </aside>
-                <aside className='w-5/10'>
+                <aside className='w-full lg:w-5/10 '>
                     <RecentlyFound></RecentlyFound>
                 </aside>
             </div>

@@ -50,9 +50,11 @@ const MyItems = () => {
 }
     return (
         <div className="bg-white rounded-md py-5">
-            <h2 className='text-center text-[#1E3A8A] font-bold text-2xl py-3'>My Items</h2>
             <table className='w-11/12 mx-auto border'>
                 <thead className='w-full bg-[#1E3A8A70]'>
+                    <tr>
+                        <th className="text-3xl font-bold text-[#1E3A8A] mb-3 border-2 text-center  p-2" colSpan={4}>My Items</th>
+                    </tr>
                     <tr>
                         <th className='text-left py-2 px-4'>Image</th>
                         <th className='text-start px-1 sm:px-4'>Title</th>

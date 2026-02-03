@@ -7,7 +7,7 @@ const AllRecoveredItems = () => {
     return (
         <div>
             <div className="bg-white rounded-md py-5">
-            <h2 className='text-center text-[#1E3A8A] font-bold text-2xl py-3'>Recovered Items</h2>
+            <h2 className='text-center text-[#1E3A8A] font-bold text-3xl py-3'>Recovered Items</h2>
             <table className='w-11/12 mx-auto border'>
                 <thead className=' bg-[#1E3A8A70]'>
                     <tr>
