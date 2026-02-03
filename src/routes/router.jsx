@@ -8,6 +8,7 @@ import itemDetails from "../pages/itemDetails";
 import AllLostFound from "../pages/AllLostFound";
 import UpdateItems from "../pages/UpdateItems";
 import MyItems from "../pages/MyItems";
+import AllRecoveredItems from "../pages/AllRecoveredItems";
 const router = createBrowserRouter([
     {
         path:"/",
@@ -46,6 +47,11 @@ const router = createBrowserRouter([
             {
                 path: '/myItems',
                 Component: MyItems,
+            },
+            {
+                path: '/allRecovered',
+                Component: AllRecoveredItems,
+                loader: ()=>fetch('http://localhost:3000/recoveredItems')
             }
         ]
     }

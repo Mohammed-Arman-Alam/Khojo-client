@@ -95,8 +95,6 @@ const AddLostFound = () => {
                         className="w-full block border border-gray-300 rounded-md p-2 focus:outline-0 focus:border-[#1E3A8A] focus:border-2 focus:bg-white" required
                         maxDate={new Date()}
                     />
-                    
-                    
                 </div>
                 <div><h3 className='text-center font-semibold text-xl'>Contact Information</h3></div>
                 <hr className='border-dashed' />

@@ -89,7 +89,7 @@ const MyItems = () => {
                     }
                 </tbody>
             </table>
-         </div>
+        </div>
     );
 };
 
