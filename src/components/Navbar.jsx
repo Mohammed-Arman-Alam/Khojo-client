@@ -47,7 +47,7 @@ const Navbar = () => {
         <div className='flex w-11/12 mx-auto justify-between pt-8 mb-5 bg-transparent items-center'>
             <Link to='/'>
             <div className='text-6xl font-poppins font-extrabold tracking-tight text-[#1E3A8A]'>
-                K<span className='text-[#FF9B51]'>h</span>oj<span className='text-[#FF9B51]'>o</span>
+                K<span className='text-[#FF9B51]'>h</span>oj<span className='text-[#1E3A8A]'>o</span>
             </div>
             </Link>
             <ul className='hidden lg:flex text-[#1E3A8A] text-2xl font-semibold gap-5 flex-nowrap text-nowrap '>

@@ -10,6 +10,7 @@ import MyItems from "../pages/MyItems";
 import AllRecoveredItems from "../pages/AllRecoveredItems";
 import PrivateRoute from "./PrivateRoute";
 import ItemDetails from "../pages/itemDetails";
+import ErrorPage from "../pages/ErrorPage";
 const router = createBrowserRouter([
     {
         path:"/",
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
                 path: '/allRecovered',
                 element:<PrivateRoute><AllRecoveredItems/></PrivateRoute>,
                 loader: ()=>fetch('http://localhost:3000/recoveredItems')
+            },
+            {
+                path:'/*',
+                Component: ErrorPage,
             }
         ]
     }
