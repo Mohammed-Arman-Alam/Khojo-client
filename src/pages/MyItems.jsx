@@ -9,7 +9,6 @@ import axios from 'axios';
 const MyItems = () => {
     const [myItems, setMyItems] = useState([]);
     const {user} = use(AuthContext);
-    console.log(myItems);
     useEffect(()=>{
         if(!user?.email) return;
         myItemsPromise(user.email).then(data => setMyItems(data));
@@ -28,7 +27,6 @@ const MyItems = () => {
                 try {
                     const res = await axios.delete(`http://localhost:3000/lost-found/${id}`
                 )
-                console.log(res);
                     if(res.data?.deletedCount > 0){
                         Swal.fire({
                         title: "Item Deleted",
@@ -50,7 +48,7 @@ const MyItems = () => {
 }
     return (
         <div className="bg-white rounded-md py-5">
-            <table className='w-11/12 mx-auto border'>
+            <table className='w-full sm:w-11/12 mx-auto border'>
                 <thead className='w-full bg-[#1E3A8A70]'>
                     <tr>
                         <th className="text-3xl font-bold text-[#1E3A8A] mb-3 border-2 text-center  p-2" colSpan={4}>My Items</th>

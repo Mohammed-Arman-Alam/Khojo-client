@@ -8,7 +8,6 @@ const RecentlyLost = () => {
             .then(res => res.json())
             .then(data=> setLostItem(data.slice(0,3)))
         },[])
-    console.log(lostItem);
     return (
         <div>
             <h1 className='text-[#1E3A8A] text-center sm:text-start text-2xl sm:text-3xl font-bold text-nowrap '>--Recently Lost Items------</h1>

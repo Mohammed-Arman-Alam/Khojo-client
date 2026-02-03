@@ -9,15 +9,19 @@ const AuthProvider = ({children}) => {
     const [loading, setLoading] = useState(true);
 
     const createUser =(email, password)=>{
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
     const updateUser=(updatedData)=>{
+        setLoading(true);
         return updateProfile(auth.currentUser, updatedData);
     }
     const loginUser =(email, password)=>{
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
     const signOutUser =()=>{
+        setLoading(true);
         return signOut(auth);
     }
     useEffect(()=>{
@@ -29,6 +33,7 @@ const AuthProvider = ({children}) => {
     },[]);
     const authInfo ={
         user,
+        loading,
         createUser,
         updateUser,
         loginUser,

@@ -8,7 +8,7 @@ import { AuthContext } from '../context/AuthProvider';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
-const itemDetails = ()=> {
+const ItemDetails = ()=> {
     const itemDetails = useLoaderData();
     const {postType, title, description, location, date, userName, email, thumbnail, _id, status} = itemDetails;
     const {user} = use(AuthContext);
@@ -22,13 +22,11 @@ const itemDetails = ()=> {
       const form = e.target;
       const formData = new FormData(form);
       const recovereInfo = Object.fromEntries(formData.entries());
-      const recovereData ={...itemDetails, ...recovereInfo}
-      console.log(recovereData);
+      const recovereData ={...itemDetails, ...recovereInfo};
       axios.post('http://localhost:3000/recoveredItems',recovereData)
       .then(res=>
         axios.patch(`http://localhost:3000/lost-found/${_id}`, {status : 'recovered'})
         .then(res=>{
-            console.log(res.data);
             if(res.data.modifiedCount){
                 Swal.fire({
                         position: "center",
@@ -132,4 +130,4 @@ const itemDetails = ()=> {
     );
 };
 
-export default itemDetails;
+export default ItemDetails;

@@ -1,12 +1,14 @@
 import React, { use } from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../context/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Login = () => {
     const {loginUser} = use(AuthContext);
     const [errorMessage, setErrorMessage] = useState('');
+    const {state} = useLocation();
+    const navigate = useNavigate();
     const handlesignInWithGoogle =()=>{
 
     }
@@ -18,10 +20,11 @@ const Login = () => {
         loginUser(email, password)
         .then(result=>{
             Swal.fire({
-                        title: `Welcome, ${result.user.displayName} Your Registration Successful!`,
+                        title: `Welcome, ${result.user.displayName} Your Login Successful!`,
                         icon: "success",
                         draggable: true
                     });
+             navigate(`${state? state:'/'}`)       
         })
         .catch(error=>{
             setErrorMessage(error.message);

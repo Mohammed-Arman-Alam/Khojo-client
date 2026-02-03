@@ -3,7 +3,6 @@ import { useLoaderData } from 'react-router';
 
 const AllRecoveredItems = () => {
     const recoveredItems = useLoaderData();
-    console.log(recoveredItems);
     return (
         <div>
             <div className="bg-white rounded-md py-5">

@@ -21,7 +21,6 @@ const UpdateItems = () => {
         const itemData = Object.fromEntries(formData.entries());
         axios.patch(`http://localhost:3000/lost-found/${_id}`,itemData)
         .then(res=>{
-            console.log(res.data.modifiedCount);
             if(res.data.modifiedCount){
                 Swal.fire({
                         position: "center",

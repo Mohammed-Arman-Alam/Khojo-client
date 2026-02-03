@@ -22,7 +22,6 @@ const SignUp = () => {
             updateUser({displayName: name, photoURL : url})
                 .then()
                 .catch()
-            console.log(name);
             Swal.fire({
                     title: `${name} Your Registration Successful!`,
                     icon: "success",

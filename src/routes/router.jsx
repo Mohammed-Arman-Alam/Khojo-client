@@ -4,11 +4,12 @@ import RootLayout from "../Layouts/RootLayout";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import AddLostFound from "../pages/AddLostFound";
-import itemDetails from "../pages/itemDetails";
 import AllLostFound from "../pages/AllLostFound";
 import UpdateItems from "../pages/UpdateItems";
 import MyItems from "../pages/MyItems";
 import AllRecoveredItems from "../pages/AllRecoveredItems";
+import PrivateRoute from "./PrivateRoute";
+import ItemDetails from "../pages/itemDetails";
 const router = createBrowserRouter([
     {
         path:"/",
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addItems',
-                Component: AddLostFound
+                element: <PrivateRoute><AddLostFound/></PrivateRoute>
             },
             {
                 path: '/allitems',
@@ -36,21 +37,22 @@ const router = createBrowserRouter([
             },
             {
                 path: '/itemdetails/:id',
-                Component: itemDetails,
+                element:<PrivateRoute><ItemDetails/></PrivateRoute>,
                 loader: ({params})=>fetch(`http://localhost:3000/details/${params.id}`)
             },
             {
                 path: '/updateItems/:id',
-                Component: UpdateItems,
-                loader: ({params})=>fetch(`http://localhost:3000/details/${params.id}`)
+                element:<PrivateRoute><UpdateItems/></PrivateRoute>,
+                loader: ({params})=>fetch(`http://localhost:3000/details/${params.id}`),
+                hydrateFallbackElement:<span className="loading loading-infinity loading-xl"></span>
             },
             {
                 path: '/myItems',
-                Component: MyItems,
+                element:<PrivateRoute><MyItems/></PrivateRoute>,
             },
             {
                 path: '/allRecovered',
-                Component: AllRecoveredItems,
+                element:<PrivateRoute><AllRecoveredItems/></PrivateRoute>,
                 loader: ()=>fetch('http://localhost:3000/recoveredItems')
             }
         ]
