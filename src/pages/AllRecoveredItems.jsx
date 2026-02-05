@@ -32,10 +32,10 @@ const AllRecoveredItems = () => {
                             recoveredItems.map(item=>
                                 <tr key={item._id} className='text-center bg-[#FAF8E8] border border-gray-300'>
                                     <td className='p-1 sm:p-2'><img src={item.thumbnail} alt="url broken" className='rounded-sm w-15 sm:w-30'/></td>
-                                    <td className='text-center px-1 sm:px-4 text-sm sm:text-lg'>{item.title}</td>
-                                    <td className='text-center px-1 sm:px-4 text-sm sm:text-lg'>{item.category}</td>
-                                    <td className='text-center px-1 sm:px-4 text-sm sm:text-lg'>{item.recoveredUserName}</td>
-                                    <td className='text-center pl-1 sm:px-4 text-sm sm:text-lg'>{item.recoveredLocation}</td>
+                                    <td className='text-center px-1 sm:px-4 text-sm sm:text-base'>{item.title}</td>
+                                    <td className='text-center px-1 sm:px-4 text-sm sm:text-base'>{item.category}</td>
+                                    <td className='text-center px-1 sm:px-4 text-sm sm:text-base'>{item.recoveredUserName}</td>
+                                    <td className='text-center pl-1 sm:px-4 text-sm sm:text-base'>{item.recoveredLocation}</td>
                                 </tr>
                             )
                         ) : (

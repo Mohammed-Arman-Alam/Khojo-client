@@ -55,7 +55,7 @@ const Navbar = () => {
             </ul>
             <div className='flex max-h-11 sm:max-h-13'>
                 <div className="lg:hidden dropdown dropdown-hover">
-                    <div tabIndex={0}  className="btn shadow-none text-xl sm:text-2xl text-[#1E3A8A] font-bold bg-white border-[#1E3A8A80] rounded-xl h-11 hover:bg-[#1E3A8A] hover:text-white ml-2 mr-1">Pages</div>
+                    <div tabIndex={0}  className="btn shadow-none text-xl sm:text-2xl text-[#1E3A8A] font-bold bg-white border-[#1E3A8A80] rounded-xl h-11 sm:h-13 hover:bg-[#1E3A8A] hover:text-white ml-2 mr-1">Pages</div>
                     <ul tabIndex="-1" className="dropdown-content menu bg-[#1E3A8A50] rounded-box z-1 w-52 p-2 shadow-sm text-[#1E3A8A] text-lg  sm:text-2xl font-semibold">
                         {navItems}
                     </ul>
