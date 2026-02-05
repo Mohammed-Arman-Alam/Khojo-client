@@ -5,12 +5,21 @@ import { AuthContext } from '../context/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Login = () => {
-    const {loginUser} = use(AuthContext);
+    const {loginUser, signInWithGoogle} = use(AuthContext);
     const [errorMessage, setErrorMessage] = useState('');
     const {state} = useLocation();
     const navigate = useNavigate();
     const handlesignInWithGoogle =()=>{
-
+        signInWithGoogle()
+        .then(result=>{
+            Swal.fire({
+                        title: `Welcome, ${result.user.displayName} Your Login Successful!`,
+                        icon: "success",
+                        draggable: true
+                    });
+             navigate(`${state? state:'/'}`)
+        })
+        .catch()
     }
     const handleLogin =e=>{
         e.preventDefault();
@@ -35,6 +44,7 @@ const Login = () => {
                     });
         })
     }
+    
     return (
         <div className="hero rounded-2xl py-5 bg-[#1E3A8A20] w-11/12 mx-auto my-5">
                 <div className="hero-content flex-col md:flex-row md:justify-around w-11/12">

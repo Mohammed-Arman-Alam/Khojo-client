@@ -5,10 +5,19 @@ import { AuthContext } from '../context/AuthProvider';
 import Swal from 'sweetalert2';
 
 const SignUp = () => {
-    const {createUser, updateUser} = use(AuthContext);
+    const {createUser, updateUser, signInWithGoogle} = use(AuthContext);
     const [errorMessage, setErrorMessage] = useState('');
     const handlesignInWithGoogle =()=>{
-        
+        signInWithGoogle()
+        .then(result=>{
+            Swal.fire({
+                        title: `Welcome, ${result.user.displayName} Your Login Successful!`,
+                        icon: "success",
+                        draggable: true
+                    });
+             navigate(`${state? state:'/'}`)
+        })
+        .catch()
     }
     const handleRegister =e=>{
         e.preventDefault();
