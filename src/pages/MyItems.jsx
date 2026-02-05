@@ -1,18 +1,22 @@
 import React, { use, useEffect, useState } from 'react';
-import {myItemsPromise} from '../api/MyItemsApi';
 import { AuthContext } from '../context/AuthProvider';
 import 'primeicons/primeicons.css';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import useItemApi from '../api/useItemApi';
 
 const MyItems = () => {
     const [myItems, setMyItems] = useState([]);
-    const {user} = use(AuthContext);
+    const {user, loading} = use(AuthContext);
+    const {getMyItems, deleteMyItem} = useItemApi();
+    
     useEffect(()=>{
-        if(!user?.email) return;
-        myItemsPromise(user.email).then(data => setMyItems(data));
-    },[user])
+        if(!loading){
+            getMyItems(user.email)
+            .then(data=> setMyItems(data))
+        }
+    },[loading]);
     const handleDelete=(id)=>{
         Swal.fire({
             title: "Are you sure?",
@@ -25,8 +29,7 @@ const MyItems = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    const res = await axios.delete(`http://localhost:3000/lost-found/${id}`
-                )
+                    const res = await deleteMyItem(id);
                     if(res.data?.deletedCount > 0){
                         Swal.fire({
                         title: "Item Deleted",

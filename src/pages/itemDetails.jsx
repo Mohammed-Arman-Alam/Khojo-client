@@ -7,9 +7,13 @@ import { use } from 'react';
 import { AuthContext } from '../context/AuthProvider';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import useRecoveredItemsApi from '../api/useRecoveredItemsApi';
+import useItemApi from '../api/useItemApi';
 
 const ItemDetails = ()=> {
     const itemDetails = useLoaderData();
+    const {recoverItem} = useRecoveredItemsApi();
+    const {updateItem} = useItemApi();
     const {postType, title, description, location, date, userName, email, thumbnail, _id, status} = itemDetails;
     const {user} = use(AuthContext);
     const [itemStatus , setStatus] = useState(status);
@@ -23,9 +27,9 @@ const ItemDetails = ()=> {
       const formData = new FormData(form);
       const recovereInfo = Object.fromEntries(formData.entries());
       const recovereData ={...itemDetails, ...recovereInfo};
-      axios.post('http://localhost:3000/recoveredItems',recovereData)
+      recoverItem(recovereData)
       .then(res=>
-        axios.patch(`http://localhost:3000/lost-found/${_id}`, {status : 'recovered'})
+        updateItem(_id,{status : 'recovered'})
         .then(res=>{
             if(res.data.modifiedCount){
                 Swal.fire({
@@ -39,9 +43,30 @@ const ItemDetails = ()=> {
                     document.getElementById('my_modal_2').close();
             }
         })
-        .catch(error => console.log(error))
+        .catch(error =>{
+          document.getElementById('my_modal_2').close();
+          Swal.fire({
+                    position: "center",
+                    icon: "error",
+                    title: `${error.status} error`,
+                    text: "Unable to recover item.",
+                    showConfirmButton: false,
+                    timer: 2500
+                    });
+        })
       )
-      .catch(error => console.log(error))
+      .catch(error =>{
+        document.getElementById('my_modal_2').close();
+        console.log(error.status);
+        Swal.fire({
+                    position: "center",
+                    icon: "error",
+                    title: `${error.status} error`,
+                    text: "Unable to recover item.",
+                    showConfirmButton: false,
+                    timer: 2500
+                    });
+      })
     }
     return (
         <div className="w-11/12 mx-auto my-10 rounded-2xl card card-side shadow-sm bg-[#1E3A8A90]">

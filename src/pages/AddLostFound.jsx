@@ -4,9 +4,11 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import useItemApi from '../api/useItemApi';
 
 const AddLostFound = () => {
     const {user} = use(AuthContext);
+    const {addItem} = useItemApi();
     const [startDate, setStartDate] = useState(new Date());
     
     const handleDateChange = (date) => {
@@ -17,7 +19,7 @@ const AddLostFound = () => {
         const form = e.target;
         const formData = new FormData(form);
         const itemData = Object.fromEntries(formData.entries());
-        axios.post('http://localhost:3000/lost-found',itemData)
+        addItem(itemData)
         .then(res=>{
             if (res.data.insertedId) {
                     Swal.fire({

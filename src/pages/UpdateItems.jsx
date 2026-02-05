@@ -5,10 +5,12 @@ import "react-datepicker/dist/react-datepicker.css";
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import { useLoaderData, useParams } from 'react-router';
+import useItemApi from '../api/useItemApi';
 
 const UpdateItems = () => {
     const {category, date, description, location, postType, thumbnail, title, _id, email} = useLoaderData();
     const {user} = use(AuthContext);
+    const {updateItem} = useItemApi();
     const [startDate, setStartDate] = useState(date);
     
     const handleDateChange = (date) => {
@@ -19,7 +21,7 @@ const UpdateItems = () => {
         const form = e.target;
         const formData = new FormData(form);
         const itemData = Object.fromEntries(formData.entries());
-        axios.patch(`http://localhost:3000/lost-found/${_id}`,itemData)
+        updateItem(_id,itemData)
         .then(res=>{
             if(res.data.modifiedCount){
                 Swal.fire({

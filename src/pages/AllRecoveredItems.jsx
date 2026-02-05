@@ -1,8 +1,16 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import { useLoaderData } from 'react-router';
+import useRecoveredItemsApi from '../api/useRecoveredItemsApi';
 
 const AllRecoveredItems = () => {
-    const recoveredItems = useLoaderData();
+    const [recoveredItems, setRecoveredItems] = useState([]);
+    console.log(recoveredItems);
+    const {getRecoveredItem} = useRecoveredItemsApi();
+    useEffect(()=>{
+        getRecoveredItem().then(data=> setRecoveredItems(data));
+    },[])
     return (
         <div>
             <div className="bg-white rounded-md py-5">
@@ -32,7 +40,7 @@ const AllRecoveredItems = () => {
                             )
                         ) : (
                             <tr>
-                                <td colSpan="4" className='text-center text-[#1E3A8A] py-6 sm:text-2xl sm:font-bold'>No Recovered Item Available</td>
+                                <td colSpan="5" className='text-center text-[#1E3A8A] py-6 sm:text-2xl sm:font-bold'>No Recovered Item Available</td>
                             </tr>
                         )
                     }
