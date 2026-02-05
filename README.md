@@ -1,16 +1,34 @@
-# React + Vite
+# Project name - Khojo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live URL:** [https://khojo-75ae6.web.app](https://khojo-75ae6.web.app)
 
-Currently, two official plugins are available:
+##  Purpose
+**Khojo** is a modern web application created to help users locate their lost items and report found products.
+It provides a simple, fast, and reliable platform where users can post details of lost or found items, and increase the chances of recovering their belongings efficiently.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##  Key Features  
+-  **Responsive Design:** Works seamlessly on mobile, tablet, and desktop.  
+-  **Clean UI:** Built with Tailwind CSS and DaisyUI for a modern interface.  
+-  **Live Deployment:** Hosted on Firebase for instant access.  
+Icons.  
+-  **Interactive Components:** Uses React Datepicker for smooth date selection.  
+-  **Alerts & Notifications:** SweetAlert2 for clean and responsive pop-ups.  
 
-## React Compiler
+##  NPM Packages Used
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+### Core Dependencies
+- **react** & **react-dom** — UI building blocks  
+- **react-router** — Client-side routing  
+- **axios** — API requests  
+- **firebase** — Hosting & backend integration  
+- **tailwindcss** & **@tailwindcss/vite** — Utility-first CSS framework  
+- **daisyui** — Tailwind CSS component library  
+- **sweetalert2** — Elegant alert messages  
+- **react-datepicker** — Interactive date picking  
+- **dotenv** — Environment variable management  
+- **primeicons** — UI icons  
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Dev Dependencies
+- **vite** & **@vitejs/plugin-react-swc** — Development & build tooling  
+- **eslint**, **@eslint/js**, **eslint-plugin-react-hooks**, **eslint-plugin-react-refresh**, **globals** — Linting and code quality  
+- **@types/react**, **@types/react-dom** — Type definitions  
