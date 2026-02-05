@@ -4,7 +4,7 @@ import ItemCard from './ItemCard';
 const RecentlyFound = () => {
     const [foundItem, setFoundItem] = useState([]);
         useEffect(()=>{
-            fetch('http://localhost:3000/lost-found/found')
+            fetch('https://khojo-server.vercel.app/lost-found/found')
             .then(res => res.json())
             .then(data=> setFoundItem(data.slice(0,3)))
         },[])

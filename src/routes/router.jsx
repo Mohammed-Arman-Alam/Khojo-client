@@ -39,12 +39,12 @@ const router = createBrowserRouter([
             {
                 path: '/itemdetails/:id',
                 element:<PrivateRoute><ItemDetails/></PrivateRoute>,
-                loader: ({params})=>fetch(`http://localhost:3000/details/${params.id}`)
+                loader: ({params})=>fetch(`https://khojo-server.vercel.app/details/${params.id}`)
             },
             {
                 path: '/updateItems/:id',
                 element:<PrivateRoute><UpdateItems/></PrivateRoute>,
-                loader: ({params})=>fetch(`http://localhost:3000/details/${params.id}`),
+                loader: ({params})=>fetch(`https://khojo-server.vercel.app/details/${params.id}`),
                 hydrateFallbackElement:<span className="loading loading-infinity loading-xl"></span>
             },
             {

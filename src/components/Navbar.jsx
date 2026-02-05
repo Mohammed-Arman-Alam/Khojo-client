@@ -44,35 +44,35 @@ const Navbar = () => {
         );
     }                
     return (
-        <div className='flex w-11/12 mx-auto justify-between pt-8 mb-5 bg-transparent items-center'>
+        <div className='flex w-11/12 mx-auto justify-between pt-8 mb-5 bg-transparent sm:items-center'>
             <Link to='/'>
-            <div className='text-6xl font-poppins font-extrabold tracking-tight text-[#1E3A8A]'>
+            <div className='text-4xl sm:text-5xl font-poppins font-extrabold tracking-tight text-[#1E3A8A]'>
                 K<span className='text-[#FF9B51]'>h</span>oj<span className='text-[#1E3A8A]'>o</span>
             </div>
             </Link>
-            <ul className='hidden lg:flex text-[#1E3A8A] text-2xl font-semibold gap-5 flex-nowrap text-nowrap '>
+            <ul className='hidden lg:flex text-[#1E3A8A] text-xl font-semibold gap-5 flex-nowrap text-nowrap'>
                 {navItems}
             </ul>
-            <div className='flex max-h-13'>
+            <div className='flex max-h-11 sm:max-h-13'>
                 <div className="lg:hidden dropdown dropdown-hover">
-                    <div tabIndex={0} role="button" className="btn shadow-none text-3xl text-[#1E3A8A] font-bold bg-white border-[#1E3A8A80] rounded-xl h-13 hover:bg-[#1E3A8A] hover:text-white mx-2">Pages</div>
-                    <ul tabIndex="-1" className="dropdown-content menu bg-[#1E3A8A50] rounded-box z-1 w-52 p-2 shadow-sm text-[#1E3A8A] text-2xl font-semibold">
+                    <div tabIndex={0}  className="btn shadow-none text-xl sm:text-2xl text-[#1E3A8A] font-bold bg-white border-[#1E3A8A80] rounded-xl h-11 hover:bg-[#1E3A8A] hover:text-white ml-2 mr-1">Pages</div>
+                    <ul tabIndex="-1" className="dropdown-content menu bg-[#1E3A8A50] rounded-box z-1 w-52 p-2 shadow-sm text-[#1E3A8A] text-lg  sm:text-2xl font-semibold">
                         {navItems}
                     </ul>
                     </div>
                     {
                         (user) ?
                         <>
-                            <button onClick={handleLogOut} className="btn shadow-none text-3xl text-[#1E3A8A] font-bold bg-white border-[#1E3A8A80] rounded-tl-xl rounded-bl-xl h-13 hover:bg-[#1E3A8A] hover:text-white">Signout</button>
+                            <button onClick={handleLogOut} className="btn shadow-none text-xl sm:text-2xl text-[#1E3A8A] font-bold bg-white border-[#1E3A8A80] rounded-tl-xl rounded-bl-xl h-11 sm:h-13 hover:bg-[#1E3A8A] hover:text-white">Signout</button>
                             <div className='max-h-12 group cursor-pointer'>
-                                <img src={user.photoURL} alt="profile" className='w-20 h-13 border border-[#1E3A8A] rounded-tr-xl rounded-br-xl'/>
+                                <img src={user.photoURL} alt="profile" className='w-14 sm:w-20 h-11 sm:h-13 border border-[#1E3A8A] rounded-tr-xl rounded-br-xl'/>
                                 <span className='opacity-0 font-semibold text-xl group-hover:opacity-100 transition'>
                                     {user.displayName}
                                 </span>
                             </div>
                         </>
                         :
-                        <Link to='/login' className='btn shadow-none text-3xl text-[#1E3A8A] font-bold bg-white border-[#1E3A8A80] rounded-xl py-6 '>Login</Link>
+                        <Link to='/login' className='btn shadow-none text-xl sm:text-2xl text-[#1E3A8A] font-bold bg-white border-[#1E3A8A80] rounded-xl h-11 sm:h-13'>Login</Link>
                     }
                     
                 </div>
