@@ -22,7 +22,7 @@ const AllRecoveredItems = () => {
                         <th className='text-center px-1 sm:px-4'>Title</th>
                         <th className='text-center px-1 sm:px-4'>Category</th>
                         <th className='text-center px-1 sm:px-2 text-wrap'>Recovered By</th>
-                        <th className='text-center px-1 sm:px-2 text-wrap'>Recovered Location</th>
+                        <th className='text-center sm:px-2 text-wrap'>Recovered Location</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,11 +31,11 @@ const AllRecoveredItems = () => {
                         (
                             recoveredItems.map(item=>
                                 <tr key={item._id} className='text-center bg-[#FAF8E8] border border-gray-300'>
-                                    <td className='p-2'><img src={item.thumbnail} alt="url broken" className='rounded-sm w-15 sm:w-30'/></td>
-                                    <td className='text-center px-1 sm:px-4'>{item.title}</td>
-                                    <td className='text-center px-1 sm:px-4'>{item.category}</td>
-                                    <td className='text-center px-1 sm:px-4'>{item.recoveredUserName}</td>
-                                    <td className='text-center px-1 sm:px-4'>{item.recoveredLocation}</td>
+                                    <td className='p-1 sm:p-2'><img src={item.thumbnail} alt="url broken" className='rounded-sm w-15 sm:w-30'/></td>
+                                    <td className='text-center px-1 sm:px-4 text-sm sm:text-lg'>{item.title}</td>
+                                    <td className='text-center px-1 sm:px-4 text-sm sm:text-lg'>{item.category}</td>
+                                    <td className='text-center px-1 sm:px-4 text-sm sm:text-lg'>{item.recoveredUserName}</td>
+                                    <td className='text-center pl-1 sm:px-4 text-sm sm:text-lg'>{item.recoveredLocation}</td>
                                 </tr>
                             )
                         ) : (
