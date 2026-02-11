@@ -57,7 +57,6 @@ const ItemDetails = ()=> {
       )
       .catch(error =>{
         document.getElementById('my_modal_2').close();
-        console.log(error.status);
         Swal.fire({
                     position: "center",
                     icon: "error",

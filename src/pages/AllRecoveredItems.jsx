@@ -6,7 +6,6 @@ import useRecoveredItemsApi from '../api/useRecoveredItemsApi';
 
 const AllRecoveredItems = () => {
     const [recoveredItems, setRecoveredItems] = useState([]);
-    console.log(recoveredItems);
     const {getRecoveredItem} = useRecoveredItemsApi();
     useEffect(()=>{
         getRecoveredItem().then(data=> setRecoveredItems(data));
