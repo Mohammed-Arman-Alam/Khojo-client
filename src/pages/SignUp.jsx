@@ -1,12 +1,15 @@
 import React, { use } from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../context/AuthProvider';
 import Swal from 'sweetalert2';
 
 const SignUp = () => {
     const {createUser, updateUser, signInWithGoogle} = use(AuthContext);
     const [errorMessage, setErrorMessage] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+    const state = location.state;
     const handlesignInWithGoogle =()=>{
         signInWithGoogle()
         .then(result=>{
@@ -15,7 +18,7 @@ const SignUp = () => {
                         icon: "success",
                         draggable: true
                     });
-             navigate(`${state? state:'/'}`)
+            navigate(`${state? state.from.pathname : '/'}`)
         })
         .catch()
     }
@@ -36,6 +39,7 @@ const SignUp = () => {
                     icon: "success",
                     draggable: true
                     });
+            navigate(`${state? state.from.pathname:'/'}`)
             setErrorMessage('');
         }
         )

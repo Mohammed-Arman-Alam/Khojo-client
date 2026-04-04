@@ -35,14 +35,7 @@ const Navbar = () => {
                         </> : ''
                     }
                     
-                    </>
-    if(loading){
-        return( 
-            <div className="min-h-screen flex items-center justify-center">
-                <span className="loading loading-infinity loading-xl"></span>
-            </div>
-        );
-    }                
+                    </>        
     return (
         <div className='flex w-11/12 mx-auto justify-between pt-8 mb-5 bg-transparent sm:items-center'>
             <Link to='/'>
